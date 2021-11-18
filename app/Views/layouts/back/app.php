@@ -29,13 +29,9 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
+                            <h1 class="m-0">
+                                <?= $this->renderSection('page_title') ?>
+                            </h1>
                         </div>
                     </div>
                 </div>
@@ -48,7 +44,9 @@
             </section>
         </div>
 
-        <?= $this->include('layouts/back/control-sidebar') ?>
+        <?php
+            // $this->include('layouts/back/control-sidebar')
+        ?>
     </div>
 
     <script src="<?= base_url('assets-back/plugins/jquery/jquery.min.js') ?>"></script>

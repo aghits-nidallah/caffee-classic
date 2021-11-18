@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="<?= base_url('assets-back/plugins/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets-back/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets-back/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('assets-back/plugins/jqvmap/jqvmap.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets-back/css/adminlte.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets-back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets-back/plugins/daterangepicker/daterangepicker.css') ?>" />
@@ -34,6 +33,31 @@
                             </h1>
                         </div>
                     </div>
+
+                    <!-- Validation error -->
+                    <?php if (session('validation_errors')): ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <?php foreach(session('validation_errors') as $error): ?>
+                                <p>
+                                    <?= $error ?>
+                                </p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Global error -->
+                    <?php if (session('error')): ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <?= session('error') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Success alert -->
+                    <?php if (session('success')): ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <?= session('success') ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -50,6 +74,7 @@
     </div>
 
     <script src="<?= base_url('assets-back/plugins/jquery/jquery.min.js') ?>"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= base_url('assets-back/plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -57,8 +82,6 @@
     <script src="<?= base_url('assets-back/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/chart.js/Chart.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/sparklines/sparkline.js') ?>"></script>
-    <script src="<?= base_url('assets-back/plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
-    <script src="<?= base_url('assets-back/plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/moment/moment.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/daterangepicker/daterangepicker.js') ?>"></script>
@@ -66,8 +89,7 @@
     <script src="<?= base_url('assets-back/plugins/summernote/summernote-bs4.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
     <script src="<?= base_url('assets-back/js/adminlte.js') ?>"></script>
-    <script src="<?= base_url('assets-back/js/demo.js') ?>"></script>
-    <script src="<?= base_url('assets-back/js/pages/dashboard.js') ?>"></script>
+    <?= $this->renderSection('scripts') ?>
 </body>
 
 </html>

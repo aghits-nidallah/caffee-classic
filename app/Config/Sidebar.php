@@ -21,6 +21,21 @@ class Sidebar extends BaseConfig
                 'title' => 'Produk',
                 'link' => site_url('Product'),
             ],
+            [
+                'icon' => 'fa-users',
+                'title' => 'Pengguna',
+                'link' => site_url('Users'),
+            ],
+            [
+                'icon' => 'fa-cog',
+                'title' => 'Pengaturan',
+                'link' => site_url('Settings'),
+            ],
+            [
+                'icon' => 'fa-sign-out-alt',
+                'title' => 'Log Out',
+                'link' => site_url('Auth/Logout'),
+            ]
         ];
     }
 }

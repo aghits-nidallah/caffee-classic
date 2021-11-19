@@ -13,7 +13,7 @@
                     <span>
                         Daftar Produk
                     </span>
-                    <a href="<?= site_url('Product/new') ?>" class="btn btn-primary btn-sm">
+                    <a href="<?= site_url('admin/product/new') ?>" class="btn btn-primary btn-sm">
                         Tambah Produk
                         <i class="fas fa-plus ml-2"></i>
                     </a>
@@ -51,13 +51,13 @@
                                         <?= $product->stock ?>
                                     </td>
                                     <td width="150">
-                                        <a href="<?= site_url('Product/' . $product->id) ?>" class="btn btn-primary btn-sm">
+                                        <a href="<?= site_url('admin/product/' . $product->id) ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= site_url('Product/' . $product->id . '/edit') ?>" class="btn btn-success btn-sm">
+                                        <a href="<?= site_url('admin/product/' . $product->id . '/edit') ?>" class="btn btn-success btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="<?= site_url('Product/' . $product->id . '/delete') ?>" method="post" class="d-inline-block">
+                                        <form action="<?= site_url('admin/product/' . $product->id . '/delete') ?>" method="post" class="d-inline-block">
                                             <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeletion(event)">
                                                 <i class="fas fa-trash"></i>
                                             </button>

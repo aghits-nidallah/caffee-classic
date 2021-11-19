@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="<?= site_url('Product') ?>">
+                    <a href="<?= site_url('admin/product') ?>">
                         <i class="fas fa-arrow-left mr-2"></i>
                         Kembali
                     </a>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="<?= site_url('Product/' . $product->id) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= site_url('admin/product/' . $product->id) ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="product_photo" class="col-3 col-form-label">Foto Produk (tidak diubah)</label>
                         <div class="col-9">

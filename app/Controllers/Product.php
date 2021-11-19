@@ -33,13 +33,13 @@ class Product extends BaseController
         $valid = $this->product->validate($this->request->getPost('product_photo'));
 
         if (!$valid) {
-            return redirect()->to('Product/new')->with('validation_errors', $this->product->errors());
+            return redirect()->to('admin/product/new')->with('validation_errors', $this->product->errors());
         }
 
         try {
             $path = $this->request->getFile('product_photo')->store();
         } catch (\Exception $e) {
-            return redirect()->to('Product/new')->with('error', 'Terjadi kesalahan pada saat mengunggah foto produk: ' . $e->getMessage());
+            return redirect()->to('admin/product/new')->with('error', 'Terjadi kesalahan pada saat mengunggah foto produk: ' . $e->getMessage());
         }
 
         try {
@@ -54,13 +54,13 @@ class Product extends BaseController
             ];
 
             if (!$this->product->insert($data)) {
-                return redirect()->to('Product/new')->with('validation_errors', $this->product->errors());
+                return redirect()->to('admin/product/new')->with('validation_errors', $this->product->errors());
             }
         } catch (\Exception $e) {
-            return redirect()->to('Product/new')->with('error', 'Terjadi kesalahan pada saat menambahkan produk: ' . $e->getMessage());
+            return redirect()->to('admin/product/new')->with('error', 'Terjadi kesalahan pada saat menambahkan produk: ' . $e->getMessage());
         }
 
-        return redirect()->to('Product/new')->with('success', 'Berhasil menambah produk.');
+        return redirect()->to('admin/product/new')->with('success', 'Berhasil menambah produk.');
     }
 
     public function show($id)
@@ -87,7 +87,7 @@ class Product extends BaseController
             $valid = $this->product->validate($this->request->getPost('product_photo'));
 
             if (!$valid) {
-                return redirect()->to('Product/' . $id . '/edit')->with('validation_errors', $this->product->errors());
+                return redirect()->to('admin/product/' . $id . '/edit')->with('validation_errors', $this->product->errors());
             }
 
             try {
@@ -100,7 +100,7 @@ class Product extends BaseController
                         'product_photo_path' => $path,
                     ]);
             } catch (\Exception $e) {
-                return redirect()->to('Product/' . $id . '/edit')->with('error', 'Terjadi kesalahan pada saat mengunggah foto produk: ' . $e->getMessage());
+                return redirect()->to('admin/product/' . $id . '/edit')->with('error', 'Terjadi kesalahan pada saat mengunggah foto produk: ' . $e->getMessage());
             }
         }
 
@@ -118,13 +118,13 @@ class Product extends BaseController
             ];
 
             if (!$this->product->update($id, $data)) {
-                return redirect()->to('Product/' . $id . '/edit')->with('validation_errors', $this->product->errors());
+                return redirect()->to('admin/product/' . $id . '/edit')->with('validation_errors', $this->product->errors());
             }
         } catch (\Exception $e) {
-            return redirect()->to('Product/' . $id . '/edit')->with('error', 'Terjadi kesalahan pada saat mengubah produk: ' . $e->getMessage());
+            return redirect()->to('admin/product/' . $id . '/edit')->with('error', 'Terjadi kesalahan pada saat mengubah produk: ' . $e->getMessage());
         }
 
-        return redirect()->to('Product/' . $id . '/edit')->with('success', 'Berhasil mengubah produk.');
+        return redirect()->to('admin/product/' . $id . '/edit')->with('success', 'Berhasil mengubah produk.');
     }
 
     public function delete($id)
@@ -132,9 +132,9 @@ class Product extends BaseController
         try {
             $this->product->delete($id, true);
         } catch (\Exception $e) {
-            return redirect()->to('Product')->with('error', 'Terjadi kesalahan pada saat menghapus produkL ' . $e->getMessage());
+            return redirect()->to('admin/product')->with('error', 'Terjadi kesalahan pada saat menghapus produkL ' . $e->getMessage());
         }
 
-        return redirect()->to('Product')->with('success', 'Berhasil menghapus produk.');
+        return redirect()->to('admin/product')->with('success', 'Berhasil menghapus produk.');
     }
 }

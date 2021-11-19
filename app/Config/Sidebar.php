@@ -19,7 +19,7 @@ class Sidebar extends BaseConfig
             [
                 'icon' => 'fa-boxes',
                 'title' => 'Produk',
-                'link' => site_url('Product'),
+                'link' => site_url('admin/product'),
             ],
             [
                 'icon' => 'fa-users',

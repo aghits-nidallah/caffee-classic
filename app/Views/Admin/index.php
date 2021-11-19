@@ -10,7 +10,9 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>0</h3>
+                <h3>
+                    <?= $product_count ?>
+                </h3>
 
                 <p>Jumlah Produk</p>
             </div>

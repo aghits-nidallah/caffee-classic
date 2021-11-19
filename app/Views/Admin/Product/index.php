@@ -35,7 +35,7 @@
                         <tbody>
                             <?php foreach($products as $product): ?>
                                 <tr>
-                                    <td>
+                                    <td width="100">
                                         <?= $product->id ?>
                                     </td>
                                     <td>
@@ -50,7 +50,7 @@
                                     <td>
                                         <?= $product->stock ?>
                                     </td>
-                                    <td>
+                                    <td width="150">
                                         <a href="<?= site_url('Product/' . $product->id) ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye"></i>
                                         </a>
@@ -69,8 +69,10 @@
                     </table>
                 </div>
 
-                <div class="btn-group">
-                    <?= $pager->links() ?>
+                <div class="d-flex justify-content-end">
+                    <div class="btn-group">
+                        <?= $pager->links() ?>
+                    </div>
                 </div>
             </div>
         </div>

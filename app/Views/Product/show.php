@@ -55,7 +55,7 @@
                                 <h4 class="quantity_title text-uppercase">Jumlah</h4>
                                 <form action="#" onsubmit="return event.preventDefault()">
                                     <button type="button" class="input_number_decrement">–</button>
-                                    <input class="input_number" type="text" value="1">
+                                    <input class="input_number" type="text" value="1" min="1" max="<?= $product->stock ?>">
                                     <button type="button" class="input_number_increment">+</button>
                                 </form>
                             </div>

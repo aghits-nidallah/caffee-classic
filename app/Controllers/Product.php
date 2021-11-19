@@ -70,7 +70,7 @@ class Product extends BaseController
         }
 
         return view('Product/show', [
-            'product' => $this->product->find($id),
+            'product' => $this->product->asObject()->find($id),
         ]);
     }
 

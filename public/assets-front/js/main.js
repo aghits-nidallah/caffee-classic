@@ -311,49 +311,49 @@
 
   // price range - start
   // --------------------------------------------------
-  $('.details_image_carousel').slick({
-    dots: false,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.details_image_carousel_nav'
-  });
-  $('.details_image_carousel_nav').slick({
-    dots: false,
-    arrows: false,
-    vertical: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    focusOnSelect: true,
-    verticalSwiping: true,
-    asNavFor: '.details_image_carousel',
-    responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 5,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 5,
-      }
-    },
-    {
-      breakpoint: 580,
-      settings: {
-        slidesToShow: 5,
-      }
-    },
-    {
-      breakpoint: 380,
-      settings: {
-        slidesToShow: 5,
-      }
-    }
-    ]
-  });
+  // $('.details_image_carousel').slick({
+  //   dots: false,
+  //   arrows: false,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   asNavFor: '.details_image_carousel_nav'
+  // });
+  // $('.details_image_carousel_nav').slick({
+  //   dots: false,
+  //   arrows: false,
+  //   vertical: true,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 1,
+  //   focusOnSelect: true,
+  //   verticalSwiping: true,
+  //   asNavFor: '.details_image_carousel',
+  //   responsive: [
+  //   {
+  //     breakpoint: 992,
+  //     settings: {
+  //       slidesToShow: 5,
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 768,
+  //     settings: {
+  //       slidesToShow: 5,
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 580,
+  //     settings: {
+  //       slidesToShow: 5,
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 380,
+  //     settings: {
+  //       slidesToShow: 5,
+  //     }
+  //   }
+  //   ]
+  // });
   // price range - end
   // --------------------------------------------------
 

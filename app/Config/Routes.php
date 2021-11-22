@@ -36,6 +36,7 @@ $routes->get('/', 'Page::index');
 $routes->group('admin', function($routes) {
     $routes->get('/', 'Admin::index');
     $routes->resource('product', ['websafe' => true]);
+    $routes->presenter('user');
 });
 
 /*

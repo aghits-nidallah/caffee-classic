@@ -107,6 +107,31 @@
         })
 
         $.widget.bridge('uibutton', $.ui.button)
+
+        function confirmDeletion(event) {
+            swal.fire({
+                title: 'Hapus data',
+                text: 'Apakah Anda yakin ingin menghapus data ini?',
+                icon: 'warning',
+                showCancelButton: true,
+            }).then(result => {
+                if (result.isConfirmed) {
+                    swal.fire(
+                        'Dikonfirmasi',
+                        'Data akan dihapus.',
+                        'info',
+                    );
+
+                    $(event.target).closest('form').submit();
+                } else {
+                    swal.fire(
+                        'Dibatalkan',
+                        'Data batal dihapus, data Anda aman.',
+                        'info',
+                    );
+                }
+            })
+        }
     </script>
     <script src="<?= base_url('/assets-back/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('/assets-back/plugins/chart.js/Chart.min.js') ?>"></script>

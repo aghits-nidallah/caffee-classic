@@ -24,7 +24,7 @@ class Sidebar extends BaseConfig
             [
                 'icon' => 'fa-users',
                 'title' => 'Pengguna',
-                'link' => site_url('Users'),
+                'link' => site_url('admin/user'),
             ],
             [
                 'icon' => 'fa-cog',

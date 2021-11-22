@@ -30,11 +30,11 @@
                         </p>
 
                         <ul class="social_links social_icons ul_li">
-                            <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-behance"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-behance"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,10 +43,9 @@
                     <div class="footer_widget footer_contact wow fadeInUp" data-wow-delay=".2s">
                         <h3 class="footer_widget_title text-uppercase">Contact us</h3>
                         <ul class="ul_li_block">
-                            <li><strong class="text-uppercase">Adress:</strong> 8638 Amarica Stranfod Mailbon Star</li>
-                            <li><strong class="text-uppercase">Mail:</strong> Israfilsupol836@gmail.com</li>
-                            <li><strong class="text-uppercase">Phone:</strong> +7464 0187 3535 645</li>
-                            <li><strong class="text-uppercase">Fax id:</strong> +9 659459 49594</li>
+                            <li><strong class="text-uppercase">Adress:</strong> Cirebon Utara, 45151</li>
+                            <li><strong class="text-uppercase">Mail:</strong> yourlovelydev@gmail.com</li>
+                            <li><strong class="text-uppercase">Phone:</strong> +62 851 5533 2844</li>
                         </ul>
                     </div>
                 </div>
@@ -84,36 +83,6 @@
                                 <span>closed</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="footer_widget footer_recent_post wow fadeInUp" data-wow-delay=".4s">
-                        <h3 class="footer_widget_title text-uppercase">Recent News</h3>
-
-                        <div class="recent_post">
-                            <a class="item_image" href="blog_details.html">
-                                <img src="<?= base_url('assets-front/images/recent_post/img_01.png') ?>" alt="image_not_found">
-                            </a>
-                            <div class="item_content">
-                                <h4 class="item_title">
-                                    <a href="blog_details.html">Best Smell of Americano Coffee Trins</a>
-                                </h4>
-                                <span class="post_date text-uppercase">December 30 - 2021</span>
-                            </div>
-                        </div>
-
-                        <div class="recent_post">
-                            <a class="item_image" href="blog_details.html">
-                                <img src="<?= base_url('assets-front/images/recent_post/img_02.png') ?>" alt="image_not_found">
-                            </a>
-                            <div class="item_content">
-                                <h4 class="item_title">
-                                    <a href="blog_details.html">Best Smell of Americano Coffee Trins</a>
-                                </h4>
-                                <span class="post_date text-uppercase">December 30 - 2021</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

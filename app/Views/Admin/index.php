@@ -19,7 +19,7 @@ Dashboard
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="<?= site_url('/Product') ?>" class="small-box-footer">
+            <a href="<?= site_url('admin/product') ?>" class="small-box-footer">
                 Selengkapnya
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
@@ -48,14 +48,14 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>0</h3>
+                <h3><?= $user_count ?></h3>
 
                 <p>Pengguna Terdaftar</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="<?= site_url('admin/user') ?>" class="small-box-footer">
                 More info
                 <i class="fas fa-arrow-circle-right"></i>
             </a>

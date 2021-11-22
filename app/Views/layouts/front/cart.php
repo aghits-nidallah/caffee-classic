@@ -1,25 +1,31 @@
 <div class="sidebar-menu-wrapper">
     <div class="cart_sidebar">
         <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
-        <h2 class="heading_title text-uppercase">Cart Items - <span>0</span></h2>
+        <h2 class="heading_title text-uppercase">Cart Items - <span class="cart_counter"><?= $cart_count ?></span></h2>
 
         <div class="cart_items_list">
-            <!-- <div class="cart_item">
+            <?php foreach($cart_display as $cart): ?>
+            <div class="cart_item">
                 <div class="item_image">
-                    <img src="<?= base_url('assets-front/images/recent_post/img_03.jpg') ?>" alt="image_not_found">
+                    <img style="width: 75px; height: 75px; object-fit: cover;" src="<?= site_url('writable/uploads/' . $cart->product_photo_path) ?>" alt="image_not_found">
                 </div>
                 <div class="item_content">
                     <h4 class="item_title">
-                        Rorem ipsum dolor sit amet, sectetur adipisi cingey.
+                        <?= $cart->name ?>
                     </h4>
-                    <span class="item_price">$19.00</span>
-                    <button type="button" class="remove_btn"><i class="fal fa-times"></i></button>
+                    <span class="item_price">
+                        Rp. <?= $cart->price ?>
+                    </span>
+                    <button type="button" class="remove_btn" onclick="removeFromCart(event, <?= $cart->id ?>)"><i class="fal fa-times"></i></button>
                 </div>
-            </div> -->
+            </div>
+            <?php endforeach; ?>
         </div>
         <div class="total_price text-uppercase">
             <span>Sub Total:</span>
-            <span>Rp0,-</span>
+            <span id="subtotal">
+                Rp <?= number_format(array_sum(array_map(function($cart) { return $cart->price; }, $cart_display)), 0, '.', '.') ?>
+            </span>
         </div>
         <!-- <ul class="btns_group ul_li">
             <li><a href="checkout.html" class="btn btn_border border_black text-uppercase">Checkout</a></li>

@@ -33,6 +33,8 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->get('/', 'Page::index');
 
+$routes->presenter('cart');
+
 $routes->group('admin', function($routes) {
     $routes->get('/', 'Admin::index');
     $routes->resource('product', ['websafe' => true]);

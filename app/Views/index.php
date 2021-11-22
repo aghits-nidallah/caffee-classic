@@ -202,6 +202,15 @@
                             </p>
                         </div>
                     </div>
+                    <div class="content-col">
+                        <div class="d-flex">
+                            <?php if (!in_array($product->id, $products_in_cart)): ?>
+                            <button class="btn btn_primary" style="padding: 1rem;" onclick="addToCart(event, <?= $product->id ?>)">
+                                <i class="fal fa-shopping-bag"></i>
+                            </button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                     <div class="content_col" style="width: 350px;">
                         <strong class="item_price">
                             <sub>Rp</sub>

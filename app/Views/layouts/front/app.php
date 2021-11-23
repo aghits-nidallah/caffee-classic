@@ -206,7 +206,7 @@
             if (productsInCart.length > 0) {
                 return $('.total').html('Rp ' + idrFormatter.format(productsInCart.map(product => {
                     return product.price * (product.quantity ?? 1);
-                })));
+                }).reduce((a, b) => parseInt(a) + parseInt(b))));
             }
 
             $(".total").html('Rp 0')

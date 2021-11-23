@@ -55,6 +55,11 @@
             let storage = window.localStorage;
             let carts = localStorage.getItem('carts');
 
+            if (carts == null) {
+                localStorage.setItem('carts', JSON.stringify([]));
+                carts = localStorage.getItem('carts');
+            }
+
             let productIds = JSON.parse(carts).map(cart => {
                 return cart;
             });

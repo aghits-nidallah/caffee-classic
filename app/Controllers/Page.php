@@ -17,4 +17,9 @@ class Page extends BaseController
     {
         return view('contact');
     }
+
+    public function checkout()
+    {
+        return view('checkout');
+    }
 }

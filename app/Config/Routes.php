@@ -33,6 +33,7 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->get('/', 'Page::index');
 $routes->get('/contact', 'Page::contact');
+$routes->get('/checkout', 'Page::checkout');
 
 $routes->presenter('cart');
 

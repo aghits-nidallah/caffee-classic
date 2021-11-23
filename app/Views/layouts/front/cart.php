@@ -10,9 +10,9 @@
             <span>Sub Total:</span>
             <span id="subtotal"></span>
         </div>
-        <!-- <ul class="btns_group ul_li">
-            <li><a href="checkout.html" class="btn btn_border border_black text-uppercase">Checkout</a></li>
-        </ul> -->
+        <ul class="btns_group ul_li">
+            <li><a href="<?= site_url('checkout') ?>" class="btn btn_border border_black text-uppercase">Checkout</a></li>
+        </ul>
     </div>
     <div class="cart_sidebar_overlay"></div>
 </div>

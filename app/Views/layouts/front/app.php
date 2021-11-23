@@ -46,7 +46,10 @@
     <script src="<?= base_url('assets-front/js/mCustomScrollbar.js') ?>"></script>
     <script src="<?= base_url('assets-front/js/main.js') ?>"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&amp;ver=2.1.6"></script>
+    <?= $this->renderSection('scripts') ?>
     <script>
+        let idrFormatter = Intl.NumberFormat('id-ID');
+
         function initiateProductListState()
         {
             let storage = window.localStorage;
@@ -57,7 +60,7 @@
             });
 
             setCartCounter();
-            setCartSubtotal();
+            countCartSubtotal();
             setProductsToCartList();
 
             $(productIds).each(productId => {
@@ -95,6 +98,7 @@
             $("button").filter(`[data-product-id="${id}"]`).show();
 
             localStorage.setItem('carts', JSON.stringify(filteredProducts));
+            countCheckoutTotal(filteredProducts);
         }
 
         function setProductsToCartList()
@@ -110,10 +114,10 @@
                         </div>
                         <div class="item_content">
                             <h4 class="item_title">
-                                ${product.name}
+                                ${product.name} x ${product.quantity ?? 1}
                             </h4>
                             <span class="item_price">
-                                Rp. ${product.price}
+                                Rp. ${idrFormatter.format(product.price * (product.quantity ?? 1))}
                             </span>
                             <button type="button" class="remove_btn" onclick="removeFromCart(event, ${product.id})"><i class="fal fa-times"></i></button>
                         </div>
@@ -130,14 +134,18 @@
             $(".cart_counter").html(productsInCart.length)
         }
 
-        function setCartSubtotal()
+        function countCartSubtotal()
         {
             let storage = window.localStorage;
             let productsInCart = JSON.parse(storage.getItem('carts'));
 
-            $("#subtotal").html('Rp ' + productsInCart.map(item => {
-                return item.price
-            }).reduce((a, b) => parseInt(a) + parseInt(b)))
+            if (productsInCart.length > 0) {
+                return $("#subtotal").html('Rp ' + idrFormatter.format(productsInCart.map(product => {
+                    return product.price * (product.quantity ?? 1);
+                }).reduce((a, b) => parseInt(a) + parseInt(b))))
+            }
+
+            $("#subtotal").html('Rp 0');
         }
 
         function removeFromCart(event, id) {
@@ -151,7 +159,9 @@
                     removeProductFromLocalStorage(id);
                     setProductsToCartList();
                     setCartCounter();
-                    setCartSubtotal();
+                    countCartSubtotal();
+
+                    $(`#productRow${id}`).remove();
 
                     swal.fire(
                         'Berhasil',
@@ -173,7 +183,7 @@
                     setProductToLocalStorage(product);
                     setProductsToCartList();
                     setCartCounter();
-                    setCartSubtotal();
+                    countCartSubtotal();
 
                     $(event.target).closest('button').hide()
 
@@ -184,6 +194,39 @@
                     );
                 }
             })
+        }
+
+        function countCheckoutTotal(productsInCart)
+        {
+            if (productsInCart.length > 0) {
+                return $('.total').html('Rp ' + idrFormatter.format(productsInCart.map(product => {
+                    return product.price * (product.quantity ?? 1);
+                })));
+            }
+
+            $(".total").html('Rp 0')
+        }
+
+        function changeCheckoutQuantity(event, productId)
+        {
+            let storage = window.localStorage;
+            let cart = storage.getItem('carts');
+            let productsInCart = JSON.parse(cart);
+
+            let updatedCartData = productsInCart.filter(product => {
+                if (product.id == productId) {
+                    product.quantity = $(event.target).val()
+
+                    $(`#subtotal-${productId}`).html('Rp ' + idrFormatter.format(product.price * product.quantity));
+                }
+
+                return product;
+            });
+
+            storage.setItem('carts', JSON.stringify(updatedCartData));
+            countCheckoutTotal(updatedCartData);
+            countCartSubtotal();
+            setProductsToCartList();
         }
 
         initiateProductListState();

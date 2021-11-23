@@ -5,7 +5,7 @@
 
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="brand_logo">
-                        <a class="brand_link" href="index_1.html">
+                        <a class="brand_link" href="<?= site_url('/') ?>">
                             <img src="<?= base_url('assets-front/images/logo/logo_white_1x.png') ?>" srcset="<?= base_url('assets-front/images/logo/logo_white_2x.png') ?> 2x" alt="logo_not_found">
                         </a>
                     </div>
@@ -35,7 +35,7 @@
                                 </button>
                             </li>
                             <li>
-                                <a class="btn btn_primary text-uppercase" href="contact.html">Contact Us</a>
+                                <a class="btn btn_primary text-uppercase" href="<?= site_url('/contact') ?>">Contact Us</a>
                             </li>
                         </ul>
                     </nav>

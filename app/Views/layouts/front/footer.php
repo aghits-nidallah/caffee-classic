@@ -2,25 +2,12 @@
     <div class="overlay"></div>
     <div class="footer_widget_area">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-6 col-sm-7">
-                    <div class="footer_subscribe_form text-center">
-                        <h2 class="form_title text-uppercase wow fadeInUp" data-wow-delay=".1s">Coffee Build your Fresh mind</h2>
-                        <form action="#">
-                            <div class="form_item wow fadeInUp" data-wow-delay=".2s">
-                                <input type="email" name="email" placeholder="Enter your email">
-                                <button class="btn btn_primary text-uppercase" type="submit">Subscribe Now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
             <div class="row justify-content-lg-between">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="footer_widget footer_about wow fadeInUp" data-wow-delay=".1s">
                         <div class="brand_logo">
-                            <a class="brand_link" href="index_1.html">
+                            <a class="brand_link" href="<?= site_url('/') ?>">
                                 <img src="<?= base_url('assets-front/images/logo/logo_white_1x.png') ?>" srcset="assets/images/logo/logo_white_2x.png 2x" alt="logo_not_found">
                             </a>
                         </div>

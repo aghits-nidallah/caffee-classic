@@ -12,4 +12,9 @@ class Page extends BaseController
             'products' => (new \App\Models\ProductModel)->findAll(),
         ]);
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

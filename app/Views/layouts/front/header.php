@@ -31,7 +31,6 @@
                                 <button type="button" class="cart_btn">
                                     <i class="fal fa-shopping-bag"></i>
                                     <small class="cart_counter">
-                                        <?= $cart_count ?>
                                     </small>
                                 </button>
                             </li>

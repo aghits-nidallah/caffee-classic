@@ -47,66 +47,122 @@
     <script src="<?= base_url('assets-front/js/main.js') ?>"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&amp;ver=2.1.6"></script>
     <script>
+        function initiateProductListState()
+        {
+            let storage = window.localStorage;
+            let carts = localStorage.getItem('carts');
+
+            let productIds = JSON.parse(carts).map(cart => {
+                return cart;
+            });
+
+            setCartCounter();
+            setCartSubtotal();
+            setProductsToCartList();
+
+            $(productIds).each(productId => {
+                $("button").filter(`[data-product-id="${productIds[productId].id}"]`).hide();
+            })
+        }
+
+        function setProductToLocalStorage(product)
+        {
+            let parsedProduct = JSON.parse(product);
+            let storage = window.localStorage;
+            let carts = localStorage.getItem('carts');
+
+            if (carts == null) {
+                data = [parsedProduct];
+            } else {
+                data = JSON.parse(carts);
+                data.push(parsedProduct);
+            }
+
+            localStorage.setItem('carts', JSON.stringify(data));
+        }
+
+        function removeProductFromLocalStorage(id)
+        {
+            let storage = window.localStorage;
+            let productsInCart = JSON.parse(storage.getItem('carts'));
+
+            let filteredProducts = productsInCart.filter(product => {
+                if (product.id != id) {
+                    return product;
+                }
+            })
+
+            $("button").filter(`[data-product-id="${id}"]`).show();
+
+            localStorage.setItem('carts', JSON.stringify(filteredProducts));
+        }
+
+        function setProductsToCartList()
+        {
+            let storage = window.localStorage;
+            let productsInCart = JSON.parse(storage.getItem('carts'));
+
+            $(".cart_items_list").html(productsInCart.map(product => {
+                return `
+                    <div class="cart_item">
+                        <div class="item_image">
+                            <img style="width: 75px; height: 75px; object-fit: cover;" src="<?= site_url() ?>writable/uploads/${product.product_photo_path}" alt="image_not_found">
+                        </div>
+                        <div class="item_content">
+                            <h4 class="item_title">
+                                ${product.name}
+                            </h4>
+                            <span class="item_price">
+                                Rp. ${product.price}
+                            </span>
+                            <button type="button" class="remove_btn" onclick="removeFromCart(event, ${product.id})"><i class="fal fa-times"></i></button>
+                        </div>
+                    </div>
+                `;
+            }));
+        }
+
+        function setCartCounter()
+        {
+            let storage = window.localStorage;
+            let productsInCart = JSON.parse(storage.getItem('carts'));
+
+            $(".cart_counter").html(productsInCart.length)
+        }
+
+        function setCartSubtotal()
+        {
+            let storage = window.localStorage;
+            let productsInCart = JSON.parse(storage.getItem('carts'));
+
+            $("#subtotal").html('Rp ' + productsInCart.map(item => {
+                return item.price
+            }).reduce((a, b) => parseInt(a) + parseInt(b)))
+        }
+
         function removeFromCart(event, id) {
             swal.fire({
                 title: 'Konfirmasi',
-                text: 'Tambahkan ke keranjang?',
+                text: 'Hapus produk dari keranjang?',
                 icon: 'info',
                 showCancelButton: true,
             }).then(result => {
                 if (result.isConfirmed) {
-                    $.ajax({
-                        url: "<?= site_url('cart/delete/') ?>" + id,
-                        type: "POST",
-                        success: function(data) {
-                            swal.fire({
-                                title: 'Berhasil',
-                                text: 'Dihapus dari keranjang',
-                                icon: 'success',
-                            })
+                    removeProductFromLocalStorage(id);
+                    setProductsToCartList();
+                    setCartCounter();
+                    setCartSubtotal();
 
-                            $(".cart_counter").html(data.cart_count)
-                            $(".cart_items_list").html(data.data.map(item => {
-                                return `
-                                    <div class="cart_item">
-                                        <div class="item_image">
-                                            <img style="width: 75px; height: 75px; object-fit: cover;" src="<?= site_url() ?>writable/uploads/${item.product_photo_path}" alt="image_not_found">
-                                        </div>
-                                        <div class="item_content">
-                                            <h4 class="item_title">
-                                                ${item.name}
-                                            </h4>
-                                            <span class="item_price">
-                                                Rp. ${item.price}
-                                            </span>
-                                            <button type="button" class="remove_btn" onclick="removeFromCart(event, ${item.id})"><i class="fal fa-times"></i></button>
-                                        </div>
-                                    </div>
-                                `;
-                            }))
-                            $("#subtotal").html('Rp ' + data.data.map(item => {
-                                return item.price
-                            }).reduce((a, b) => parseInt(a) + parseInt(b)))
-                        },
-                        error: function(data) {
-                            swal.fire({
-                                title: 'Gagal',
-                                text: 'Tidak dapat menghapus produk dari keranjang',
-                                icon: 'error',
-                            })
-                        }
-                    })
-                } else {
                     swal.fire(
-                        'Dibatalkan',
-                        'Tidak dapat menghapus produk dari keranjang',
-                        'error',
-                    )
+                        'Berhasil',
+                        'Berhasil menghapus produk dari keranjang',
+                        'success',
+                    );
                 }
             })
         }
 
-        function addToCart(event, id) {
+        function addToCart(event, product) {
             swal.fire({
                 title: 'Konfirmasi',
                 text: 'Tambahkan ke keranjang?',
@@ -114,60 +170,23 @@
                 showCancelButton: true,
             }).then(result => {
                 if (result.isConfirmed) {
-                    $.ajax({
-                        url: "<?= site_url('cart') ?>",
-                        type: "POST",
-                        data: {
-                            product_id: id,
-                        },
-                        success: function(data) {
-                            swal.fire({
-                                title: 'Berhasil',
-                                text: 'Ditambahkan ke keranjang',
-                                icon: 'success',
-                            })
+                    setProductToLocalStorage(product);
+                    setProductsToCartList();
+                    setCartCounter();
+                    setCartSubtotal();
 
-                            $(event.target).closest('button').hide()
-                            $(".cart_counter").html(data.cart_count)
-                            $(".cart_items_list").html(data.data.map(item => {
-                                return `
-                                    <div class="cart_item">
-                                        <div class="item_image">
-                                            <img style="width: 75px; height: 75px; object-fit: cover;" src="<?= site_url() ?>writable/uploads/${item.product_photo_path}" alt="image_not_found">
-                                        </div>
-                                        <div class="item_content">
-                                            <h4 class="item_title">
-                                                ${item.name}
-                                            </h4>
-                                            <span class="item_price">
-                                                Rp. ${item.price}
-                                            </span>
-                                            <button type="button" class="remove_btn" onclick="removeFromCart(event, ${item.id})"><i class="fal fa-times"></i></button>
-                                        </div>
-                                    </div>
-                                `;
-                            }))
-                            $("#subtotal").html('Rp ' + data.data.map(item => {
-                                return item.price
-                            }).reduce((a, b) => parseInt(a) + parseInt(b)))
-                        },
-                        error: function(data) {
-                            swal.fire({
-                                title: 'Gagal',
-                                text: 'Tidak dapat ditambahkan ke keranjang',
-                                icon: 'error',
-                            })
-                        }
-                    })
-                } else {
+                    $(event.target).closest('button').hide()
+
                     swal.fire(
-                        'Dibatalkan',
-                        'Produk tidak ditambahkan ke keranjang',
-                        'error',
-                    )
+                        'Berhasil',
+                        'Berhasil menambahkan produk ke keranjang',
+                        'success',
+                    );
                 }
             })
         }
+
+        initiateProductListState();
     </script>
 </body>
 </html>

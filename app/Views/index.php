@@ -204,11 +204,9 @@
                     </div>
                     <div class="content-col">
                         <div class="d-flex">
-                            <?php if (!in_array($product->id, $products_in_cart)): ?>
-                            <button class="btn btn_primary" style="padding: 1rem;" onclick="addToCart(event, <?= $product->id ?>)">
+                            <button class="btn btn_primary product-cart-button" data-product-id="<?= $product->id ?>" style="padding: 1rem;" onclick='addToCart(event, `<?= json_encode($product) ?>`)'>
                                 <i class="fal fa-shopping-bag"></i>
                             </button>
-                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="content_col" style="width: 350px;">

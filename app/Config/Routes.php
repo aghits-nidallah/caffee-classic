@@ -34,6 +34,7 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Page::index');
 $routes->get('/contact', 'Page::contact');
 $routes->get('/checkout', 'Page::checkout');
+$routes->post('/checkout', 'Checkout::create');
 
 $routes->presenter('cart');
 

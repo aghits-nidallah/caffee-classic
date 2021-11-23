@@ -39,6 +39,39 @@
                 </tr>
             </tfoot>
         </table>
+        <form action="<?= site_url('checkout') ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group row justify-content-end mt-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <label for="name">Nama Anda</label>
+                    <input type="text" name="name" id="name" class="form-control mt-2" value="<?= old('name') ?>" required />
+                </div>
+            </div>
+            <div class="form-group row justify-content-end mt-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <label for="phone_number">No. HP/WA</label>
+                    <input type="text" name="phone_number" id="phone_number" class="form-control mt-2" value="<?= old('phone_number') ?>" required />
+                </div>
+            </div>
+            <div class="form-group row justify-content-end mt-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <label for="address">Alamat Anda</label>
+                    <textarea name="address" id="address" cols="30" rows="4" class="form-control mt-2" required><?= old('address') ?></textarea>
+                </div>
+            </div>
+            <div class="form-group row justify-content-end mt-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <label for="payment_proof">Bukti Pembayaran</label>
+                    <input type="file" name="payment_proof" id="payment_proof" class="form-control mt-2" required />
+                </div>
+            </div>
+            <div class="form-group row justify-content-end mt-4">
+                <div class="col-xs-12 col-sm-6 col-md-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn_primary">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

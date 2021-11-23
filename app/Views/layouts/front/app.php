@@ -47,6 +47,48 @@
     <script src="<?= base_url('assets-front/js/main.js') ?>"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&amp;ver=2.1.6"></script>
     <?= $this->renderSection('scripts') ?>
+
+    <?php if (session('errors')): ?>
+        <script>
+            let errors = JSON.parse(`<?= json_encode(session('errors')) ?>`);
+            let error_messages = ``;
+            for (let key in errors) {
+                error_messages += `<p>${errors[key]}</p>`;
+            }
+
+            jQuery(function() {
+                swal.fire({
+                    title: 'Error!',
+                    html: error_messages,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            })
+        </script>
+    <?php endif; if (session('error')): ?>
+        <script>
+            jQuery(function() {
+                swal.fire({
+                    title: 'Error!',
+                    text: '<?= session('error') ?>',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            })
+        </script>
+    <?php endif; if (session('success')): ?>
+        <script>
+            jQuery(function() {
+                swal.fire({
+                    title: 'Berhasil!',
+                    text: '<?= session('success') ?>',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            })
+        </script>
+    <?php endif; ?>
+
     <script>
         let idrFormatter = Intl.NumberFormat('id-ID');
 

@@ -33,10 +33,10 @@ class ProductModel extends Model
     protected $validationRules      = [
         'product_photo' => 'uploaded[product_photo]|max_size[product_photo,4096]|ext_in[product_photo,png,jpg,jpeg]|is_image[product_photo]',
         'product_photo_path' => 'required|string',
-        'name' => 'required|alpha_numeric_space',
+        'name' => 'required|string',
         'price' => 'required|integer',
         'stock' => 'required|integer',
-        'description' => 'permit_empty|alpha_numeric_space',
+        'description' => 'permit_empty|string',
     ];
     protected $validationMessages   = [
         'product_photo' => [

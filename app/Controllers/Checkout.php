@@ -9,6 +9,45 @@ class Checkout extends ResourceController
     protected $modelName = \App\Models\CheckoutModel::class;
     private $_has_errors = false;
 
+    public function index()
+    {
+        return view('Admin/Checkout/index', [
+            'checkouts' => $this->model->findAll(),
+        ]);
+    }
+
+    public function show($id = null)
+    {
+        if ($id == null) return "Illegal action";
+
+        return view('Admin/Checkout/show', [
+            'checkout_detail' => (new \App\Models\CheckoutDetailModel())
+                ->join('products', 'products.id = checkout_details.product_id', 'left')
+                ->select('checkout_details.*, products.name, products.product_photo_path')
+                ->where('checkout_id', $id)
+                ->findAll(),
+            'checkout' => $this->model->find($id),
+        ]);
+    }
+
+    public function update($id = null)
+    {
+        if ($id == null) return "Illegal action";
+
+        try {
+            $this->model->update($id, [
+                'courier' => $this->request->getPost('courier'),
+                'tracking_id' => $this->request->getPost('tracking_id'),
+                'notes' => $this->request->getPost('notes'),
+                'is_sent' => 1,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->to('admin/checkout/' . $id)->with('error', 'Terjadi kesalahan dalam mengkonfirmasi pesanan: ' . $e->getMessage())->withInput();
+        }
+
+        return redirect()->to('admin/checkout/' . $id)->with('success', 'Berhasil mengkonfirmasi pesanan.');
+    }
+
     public function create()
     {
         $validated = $this->model->validate($this->request->getPost([

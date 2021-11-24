@@ -17,7 +17,7 @@ Dashboard
                 <p>Jumlah Produk</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fas fa-boxes"></i>
             </div>
             <a href="<?= site_url('admin/product') ?>" class="small-box-footer">
                 Selengkapnya
@@ -30,14 +30,16 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>0</h3>
+                <h3>
+                    <?= $checkout_count ?>
+                </h3>
 
-                <p>Interaksi</p>
+                <p>Order</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="<?= site_url('admin/checkout') ?>" class="small-box-footer">
                 Selengkapnya
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
@@ -61,9 +63,8 @@ Dashboard
             </a>
         </div>
     </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
+
+    <!-- <div class="col-lg-3 col-6">
         <div class="small-box bg-danger">
             <div class="inner">
                 <h3>0</h3>
@@ -78,7 +79,6 @@ Dashboard
                 <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
-    </div>
-    <!-- ./col -->
+    </div> -->
 </div>
 <?= $this->endSection() ?>

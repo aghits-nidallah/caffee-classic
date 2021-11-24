@@ -42,6 +42,10 @@ $routes->group('admin', function($routes) {
     $routes->get('/', 'Admin::index');
     $routes->resource('product', ['websafe' => true]);
     $routes->presenter('user');
+
+    $routes->get('checkout', 'Checkout::index');
+    $routes->get('checkout/(:num)', 'Checkout::show/$1');
+    $routes->post('checkout/update/(:num)', 'Checkout::update/$1');
 });
 
 /*

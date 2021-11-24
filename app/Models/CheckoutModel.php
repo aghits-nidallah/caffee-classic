@@ -20,6 +20,10 @@ class CheckoutModel extends Model
         'buyer_address',
         'payment_proof_file',
         'total',
+        'courier',
+        'tracking_id',
+        'notes',
+        'is_sent',
     ];
 
     // Dates
@@ -37,6 +41,10 @@ class CheckoutModel extends Model
         'payment_proof' => 'uploaded[payment_proof]|max_size[payment_proof,4096]',
         'payment_proof_file' => 'required|string',
         'total' => 'required|numeric',
+        'courier' => 'permit_empty|string',
+        'tracking_id' => 'permit_empty|string',
+        'notes' => 'permit_empty|string',
+        'is_sent' => 'permit_empty|numeric',
     ];
     protected $validationMessages   = [
         'payment_proof' => [

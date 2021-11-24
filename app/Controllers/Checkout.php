@@ -8,6 +8,7 @@ class Checkout extends ResourceController
 {
     protected $modelName = \App\Models\CheckoutModel::class;
     private $_has_errors = false;
+    private $_last_checkout_id = null;
 
     public function index()
     {
@@ -73,11 +74,14 @@ class Checkout extends ResourceController
             ], true);
 
             $this->_create_checkout_details($checkout_id, $this->request->getPost());
+            $this->_last_checkout_id = $checkout_id;
 
             if ($this->_has_errors) {
+                $this->model->delete($checkout_id);
                 return redirect()->to('/checkout')->with('error', 'Terjadi kesalahan dalam menginput detail checkout ke database, mohon hubungi tim pengembang.')->withInput();
             }
         } catch (\Exception $e) {
+            $this->model->delete($this->_last_checkout_id);
             return redirect()->to('/checkout')->with('error', 'Terjadi kesalahan dalam menginput data ke database: ' . $e->getMessage())->withInput();
         }
 

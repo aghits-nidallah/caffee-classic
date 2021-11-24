@@ -58,6 +58,11 @@
                                         <a href="<?= site_url('admin/checkout/' . $checkout->id) ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye"></i>
                                         </a>
+                                        <form action="<?= site_url('admin/checkout/delete/' . $checkout->id) ?>" method="post" class="d-inline">
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeletion(event)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

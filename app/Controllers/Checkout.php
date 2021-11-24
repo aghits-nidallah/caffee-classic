@@ -88,6 +88,19 @@ class Checkout extends ResourceController
         return redirect()->to('/checkout')->with('success', 'Berhasil menambahkan produk ke keranjang. Tim kami akan segera menghubungi Anda.');
     }
 
+    public function delete($id = null)
+    {
+        if ($id == null) return "Illegal action";
+
+        try {
+            $this->model->delete($id);
+        } catch (\Exception $e) {
+            return redirect()->to('/admin/checkout')->with('error', 'Terjadi kesalahan dalam menghapus data: ' . $e->getMessage())->withInput();
+        }
+
+        return redirect()->to('/admin/checkout')->with('success', 'Berhasil menghapus data.');
+    }
+
     private function _create_checkout_details($checkout_id, $request)
     {
         $checkouts = json_decode($request['checkout_detail']);

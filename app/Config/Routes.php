@@ -48,6 +48,7 @@ $routes->group('admin', function($routes) {
     $routes->get('checkout', 'Checkout::index');
     $routes->get('checkout/(:num)', 'Checkout::show/$1');
     $routes->post('checkout/update/(:num)', 'Checkout::update/$1');
+    $routes->post('checkout/delete/(:num)', 'Checkout::delete/$1');
 });
 
 /*

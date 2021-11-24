@@ -246,12 +246,16 @@
         function countCheckoutTotal(productsInCart)
         {
             if (productsInCart.length > 0) {
-                return $('.total').html('Rp ' + idrFormatter.format(productsInCart.map(product => {
+                let total = productsInCart.map(product => {
                     return product.price * (product.quantity ?? 1);
-                }).reduce((a, b) => parseInt(a) + parseInt(b))));
+                }).reduce((a, b) => parseInt(a) + parseInt(b))
+
+                $("input[name='total']").val(total);
+                return $('.total').html('Rp ' + idrFormatter.format(total));
             }
 
             $(".total").html('Rp 0')
+            $("input[name='total']").val(0);
         }
 
         function changeCheckoutQuantity(event, productId)

@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CheckoutModel extends Model
+class CheckoutDetailModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'checkouts';
+    protected $table                = 'checkout_details';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
@@ -15,11 +15,11 @@ class CheckoutModel extends Model
     protected $useSoftDeletes       = true;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'buyer_name',
-        'buyer_phone_number',
-        'buyer_address',
-        'payment_proof_file',
-        'total',
+        'checkout_id',
+        'product_id',
+        'quantity',
+        'sold_price',
+        'subtotal',
     ];
 
     // Dates
@@ -31,19 +31,13 @@ class CheckoutModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'buyer_name' => 'required|string',
-        'buyer_phone_number' => 'required|string',
-        'buyer_address' => 'required|string',
-        'payment_proof' => 'uploaded[payment_proof]|max_size[payment_proof,4096]',
-        'payment_proof_file' => 'required|string',
-        'total' => 'required|numeric',
+        'checkout_id' => 'required|integer',
+        'product_id' => 'required|integer',
+        'quantity' => 'required|integer',
+        'sold_price' => 'required|integer',
+        'subtotal' => 'required|integer',
     ];
-    protected $validationMessages   = [
-        'payment_proof' => [
-            'uploaded' => 'Bukti pembayaran harus berbentuk gambar yang valid.',
-            'max_size' => 'Ukuran maksimal bukti pembayaran tidak boleh melebihi 4MB.',
-        ],
-    ];
+    protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

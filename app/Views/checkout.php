@@ -40,6 +40,8 @@
             </tfoot>
         </table>
         <form action="<?= site_url('checkout') ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="checkout_detail" />
+            <input type="hidden" name="total" />
             <div class="form-group row justify-content-end mt-4">
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <label for="name">Nama Anda</label>
@@ -78,12 +80,21 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('scripts') ?>
+<?php if (session('success')): ?>
+<script>
+    let storage = window.localStorage;
+    storage.setItem('carts', JSON.stringify([]));
+</script>
+<?php endif; ?>
+
 <script>
     jQuery(function() {
         let storage = window.localStorage;
         let cart = storage.getItem('carts');
         let productsInCart = JSON.parse(cart);
         countCheckoutTotal(productsInCart);
+
+        $("input[name='checkout_detail']").val(cart);
 
         $('.cart-body').html(productsInCart.map(product => {
             return `

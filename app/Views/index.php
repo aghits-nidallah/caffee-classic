@@ -1,13 +1,13 @@
 <?= $this->extend('layouts/front/app'); ?>
 
 <?= $this->section('content'); ?>
-<section class="slider_section slider_dark" style="background-image: url(<?= base_url('assets-front/images/backgrounds/bg_01.png') ?>);">
+<section class="slider_section slider_dark" style="background-image: url(<?= base_url('writable/uploads/template/caffee/A5.jpg') ?>);">
     <div class="main_slider pb-0 wow fadeInUp" data-wow-delay=".1s">
-        <div class="slider_item text-white" style="background-image: url(<?= base_url('assets-front/images/slider/img_01.png') ?>);">
+        <div class="slider_item text-white" style="background-image: url(<?= base_url('writable/uploads/template/caffee/A5.jpg') ?>);">
             <div class="container">
                 <div class="row justify-content-lg-start justify-content-md-center">
                     <div class="col-lg-6 col-md-8">
-                        <h3 class="title_text text-white text-uppercase" data-animation="fadeInUp" data-delay=".2s">
+                        <h3 class="title_text text-white text-black text-uppercase" style="-webkit-text-stroke: 2px black;" data-animation="fadeInUp" data-delay=".2s">
                             Time to discover coffee house
                         </h3>
                         <p data-animation="fadeInUp" data-delay=".4s">
@@ -109,7 +109,7 @@
         <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 col-md-6 order-last">
                 <div class="about_image1 wow fadeInRight" data-wow-delay=".1s">
-                    <img src="<?= base_url('assets-front/images/about/img_01.png') ?>" alt="image_not_found">
+                    <img src="<?= base_url('writable/uploads/template/caffee/A4.jpg') ?>" alt="image_not_found">
                     <div class="year_content_wrap text-uppercase" style="background-image: url(<?= base_url('assets-front/images/about/bg_01.png') ?>);">
                         <div class="content_wrap">
                             <span>27 <small>+ years of</small></span>
@@ -228,7 +228,7 @@
             <div class="col-lg-4">
                 <div class="offer_video wow fadeIn" data-wow-delay=".1s">
                     <div class="overlay"></div>
-                    <img src="<?= base_url('assets-front/images/offer/img_01.jpg') ?>" alt="image_not_found">
+                    <img src="<?= base_url('writable/uploads/template/caffee/A1.jpg') ?>" alt="image_not_found">
                     <!-- <a class="popup_video video_btn2" href="http://www.youtube.com/watch?v=0O2aH4XLbto"> -->
                     <a class="popup_video video_btn2" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                         <span class="pulse"><i class="fas fa-play"></i></span>
@@ -291,7 +291,7 @@
 
                     <div class="offerinfo_col col-lg-4">
                         <div class="offer_info_item opening_time text-uppercase text-white wow fadeInUp" data-wow-delay=".2s" style="background-image: url(<?= base_url('assets-front/images/offer/bg_01.png') ?>);">
-                            <h3 class="offer_info_title text-white">Opening hours. . . . <i class="fal fa-clock"></i></h3>
+                            <h3 class="offer_info_title text-white">Jam Buka <i class="fal fa-clock"></i></h3>
                             <ul class="ul_li_block">
                                 <li>
                                     Senin
@@ -337,7 +337,7 @@
     </div>
 </section>
 
-<section class="testimonial_section sec_ptb_120 deco_wrap" style="background-image: url(<?= base_url('assets-front/images/backgrounds/bg_02.png') ?>);">
+<!-- <section class="testimonial_section sec_ptb_120 deco_wrap" style="background-image: url(<?= base_url('assets-front/images/backgrounds/bg_02.png') ?>);">
     <div class="container">
         <div class="testimonial_slider wow fadeInUp" data-wow-delay=".2s">
             <div class="testimonial_item_1 slider_item">
@@ -391,5 +391,5 @@
     <div class="deco_item thumbnail_4 wow fadeInUp" data-wow-delay=".4s">
         <img src="<?= base_url('assets-front/images/testimonial/thumbnail_04.png') ?>" alt="image_not_found">
     </div>
-</section>
+</section> -->
 <?= $this->endSection(); ?>

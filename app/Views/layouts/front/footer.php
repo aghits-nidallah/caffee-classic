@@ -29,45 +29,47 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="footer_widget footer_contact wow fadeInUp" data-wow-delay=".2s">
                         <h3 class="footer_widget_title text-uppercase">Contact us</h3>
+                        <p>
+                            Cafe D’villa Classic
+                        </p>
                         <ul class="ul_li_block">
-                            <li><strong class="text-uppercase">Adress:</strong> Cirebon Utara, 45151</li>
-                            <li><strong class="text-uppercase">Mail:</strong> yourlovelydev@gmail.com</li>
-                            <li><strong class="text-uppercase">Phone:</strong> +62 851 5533 2844</li>
+                            <li style="line-height: 1.5;"><strong class="text-uppercase">Adress:</strong> Jl. Baturoke Sukadana Argapura - Setelah Kampung Air</li>
+                            <li style="line-height: 1.5;"><strong class="text-uppercase">Phone:</strong>Fani Maria Viarawangi 085224787777</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="footer_widget footer_opening_time wow fadeInUp" data-wow-delay=".3s">
-                        <h3 class="footer_widget_title text-uppercase">Opening Hours</h3>
+                        <h3 class="footer_widget_title text-uppercase">Jam Buka</h3>
                         <ul class="ul_li_block">
                             <li>
-                                Monday
+                                Senin
                                 <span>9:00 - 18:00</span>
                             </li>
                             <li>
-                                tuesday
+                                Selasa
                                 <span>10:00 - 18:00</span>
                             </li>
                             <li>
-                                wednestday
+                                Rabu
                                 <span>11:00 - 18:00</span>
                             </li>
                             <li>
-                                Thusday
+                                Kamis
                                 <span>12:00 - 18:00</span>
                             </li>
                             <li>
-                                Friday
+                                Jum'at
                                 <span>14:00 - 18:00</span>
                             </li>
                             <li>
-                                saterday
+                                Sabtu
                                 <span>16:00 - 18:00</span>
                             </li>
                             <li>
-                                Sunday
-                                <span>closed</span>
+                                Minggu
+                                <span>tutup</span>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +80,7 @@
 
     <div class="container">
         <div class="footer_bottom text-center">
-            <p class="copyright_text mb-0 wow fadeInUp" data-wow-delay=".2s">Copyright@ 2021 Design by <a class="btn_text" href="https://themeforest.net/user/xpressrow"><span>Xpressrow</span></a></p>
+            <p class="copyright_text mb-0 wow fadeInUp" data-wow-delay=".2s">Copyright@ 2021 Design by <a class="btn_text" href="https://themeforest.net/user/xpressrow"><span>Xpressrow</span></a>. Developed by <a href="https://github.com/aghits-nidallah" class="btn_text"><span>Aghits Nidallah</span></a>.</p>
         </div>
     </div>
 </footer>

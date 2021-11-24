@@ -36,6 +36,8 @@ $routes->get('/contact', 'Page::contact');
 $routes->get('/checkout', 'Page::checkout');
 $routes->post('/checkout', 'Checkout::create');
 
+$routes->get('/product/(:num)', 'Product::show/$1');
+
 $routes->presenter('cart');
 
 $routes->group('admin', function($routes) {

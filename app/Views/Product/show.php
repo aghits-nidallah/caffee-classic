@@ -49,7 +49,7 @@
                             <span class="in_stuck"><i class="fal fa-check"></i> Tersedia</span>
                         <?php endif; ?>
                     </div>
-                    <ul class="btns_group ul_li">
+                    <!-- <ul class="btns_group ul_li">
                         <li>
                             <div class="quantity_input quantity_boxed">
                                 <h4 class="quantity_title text-uppercase">Jumlah</h4>
@@ -65,8 +65,8 @@
                                 Tambahkan ke keranjang
                             </a>
                         </li>
-                    </ul>
-                    <div class="details_share_links">
+                    </ul> -->
+                    <!-- <div class="details_share_links">
                         <h4 class="list_title"><i class="fas fa-share mr-1"></i> Bagikan</h4>
                         <ul class="social_links social_icons ul_li">
                             <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
@@ -74,7 +74,7 @@
                             <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

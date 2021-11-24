@@ -188,12 +188,12 @@
                 <?php foreach($products as $product): ?>
                 <div class="recipe_item mb-4">
                     <div class="content_col">
-                        <a class="item_image" href="shop_details.html">
+                        <a class="item_image" href="<?= site_url('/product/' . $product->id) ?>">
                             <img src="<?= site_url('writable/uploads/' . $product->product_photo_path) ?>" alt="image_not_found" width="100" height="100" style="object-fit: cover;">
                         </a>
                         <div class="item_content">
                             <h3 class="item_title text-uppercase">
-                                <a href="shop_details.html">
+                                <a href="<?= site_url('/product/' . $product->id) ?>">
                                     <?= $product->name ?>
                                 </a>
                             </h3>
@@ -269,30 +269,30 @@
                 <div class="row g-0">
                     <div class="offerinfo_col col-lg-4">
                         <div class="offer_info_item table_reservation_contact wow fadeInUp" data-wow-delay=".1s">
-                            <h3 class="offer_info_title text-uppercase">table Reservation. . . .<i class="fal fa-heart"></i></h3>
+                            <h3 class="offer_info_title text-uppercase">Reservasi Meja</h3>
                             <ul class="ul_li_block">
                                 <li>
                                     <div class="item_icon">
                                         <i class="fas fa-phone"></i>
                                     </div>
                                     <div class="item_content">
-                                        <span>(62) 85155332844</span>
+                                        <span>Fani Maria Viarawangi 085224787777</span>
                                     </div>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <div class="item_icon"><i class="fas fa-envelope"></i></div>
                                     <div class="item_content">
                                         <span>yourlovelydev@gmail.com</span>
                                     </div>
-                                </li>
+                                </li> -->
                                 <li>
                                     <div class="item_icon"><i class="fas fa-fax"></i></div>
                                     <div class="item_content">
-                                        <span>Cirebon Utara, 45151</span>
+                                        <span>Jl. Baturoke Sukadana Argapura - Setelah Kampung Air</span>
                                     </div>
                                 </li>
                             </ul>
-                            <a class="btn btn_secondary text-uppercase" href="mailto:yourlovelydev@gmail.com">Contact Us</a>
+                            <a class="btn btn_secondary text-uppercase" href="<?= site_url('contact') ?>">Contact Us</a>
                         </div>
                     </div>
 
@@ -301,32 +301,32 @@
                             <h3 class="offer_info_title text-white">Opening hours. . . . <i class="fal fa-clock"></i></h3>
                             <ul class="ul_li_block">
                                 <li>
-                                    Monday
+                                    Senin
                                     <span>9:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    tuesday
+                                    Selasa
                                     <span>10:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    wednestday
+                                    Rabu
                                     <span>11:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    Thusday
+                                    Kamis
                                     <span>12:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    Friday
+                                    Jum'at
                                     <span>14:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    saterday
+                                    Sabtu
                                     <span>16:00 - 18:00</span>
                                 </li>
                                 <li>
-                                    Sunday
-                                    <span>closed</span>
+                                    Minggu
+                                    <span>Tutup</span>
                                 </li>
                             </ul>
                         </div>
@@ -334,7 +334,7 @@
 
                     <div class="offerinfo_col col-lg-4">
                         <div class="offer_info_item friday_offer text-center wow fadeInUp" data-wow-delay=".3s">
-                            <h3 class="offer_info_title text-uppercase">Friday Offer. . . . <i class="fal fa-gift"></i></h3>
+                            <h3 class="offer_info_title text-uppercase">Penawaran Spesial</h3>
                             <img src="<?= base_url('assets-front/images/offer/img_03.png') ?>" alt="image_not_found">
                         </div>
                     </div>

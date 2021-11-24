@@ -5,7 +5,7 @@
         </h1>
         <ul class="breadcrumb_nav ul_li wow fadeInUp" data-wow-delay=".2s">
             <li>
-                <a href="index_1.html">
+                <a href="<?= site_url('/') ?>">
                     <i class="fas fa-home"></i>
                     Home
                 </a>

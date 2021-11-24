@@ -14,25 +14,25 @@
                     <div class="item_icon"><i class="fal fa-envelope"></i></div>
                     <div class="item_content">
                         <h3 class="item_title text-uppercase">Email Address</h3>
-                        <p>yourlovelydev@gmail.com</p>
+                        <p>-</p>
                     </div>
                 </div>
                 <div class="contact_info_item">
                     <div class="item_icon"><i class="fal fa-map-marker-alt"></i></div>
                     <div class="item_content">
                         <h3 class="item_title text-uppercase">Our Location</h3>
-                        <p>Cirebon Utara, 45151</p>
+                        <p>Jl. Baturoke Sukadana Argapura - Setelah Kampung Air</p>
                     </div>
                 </div>
                 <div class="contact_info_item">
                     <div class="item_icon"><i class="fal fa-phone"></i></div>
                     <div class="item_content">
-                        <h3 class="item_title text-uppercase">Phone Number</h3>
-                        <p>(62) 851 5533 2844</p>
+                        <h3 class="item_title text-uppercase">Fani Maria Viarawangi</h3>
+                        <p>0852 2478 7777</p>
                     </div>
                 </div>
             </div>
-            <form onsubmit="event.preventDefault(); acceptContact()" method="POST">
+            <!-- <form onsubmit="event.preventDefault(); acceptContact()" method="POST">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form_item">
@@ -54,7 +54,7 @@
                 <div class="text-center">
                     <button type="submit" class="btn btn_primary text-uppercase">Send message</button>
                 </div>
-            </form>
+            </form> -->
         </div>
     </div>
 </section>

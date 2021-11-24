@@ -13,10 +13,6 @@
                         <p data-animation="fadeInUp" data-delay=".4s">
                             The coffee is brewed by first roasting the green coffee beans over hot coals in a brazier. given an opportunity to sample.
                         </p>
-                        <!-- <ul class="btns_group ul_li" data-animation="fadeInUp" data-delay=".6s">
-                            <li><a class="btn btn_primary text-uppercase" href="javascript:void(0)">Caffee Classic</a></li>
-                            <li><a class="btn btn_border border_white text-uppercase" href="shop_details.html">Learn more</a></li>
-                        </ul> -->
                     </div>
                 </div>
             </div>
@@ -149,9 +145,6 @@
                         </li>
                     </ul>
                     <ul class="btns_group ul_li wow fadeInUp" data-wow-delay=".5s">
-                        <!-- <li>
-                            <a class="btn btn_primary text-uppercase" href="about.html">Learn more</a>
-                        </li> -->
                         <li>
                             <div class="chip_item">
                                 <div class="chip_thumbnail">

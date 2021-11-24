@@ -93,9 +93,9 @@ class Checkout extends ResourceController
             $data = [
                 'checkout_id' => $checkout_id,
                 'product_id' => $checkout->id,
-                'quantity' => $checkout->quantity,
+                'quantity' => $checkout->quantity ?? 1,
                 'sold_price' => $checkout->price,
-                'subtotal' => $checkout->price * $checkout->quantity,
+                'subtotal' => $checkout->price * ($checkout->quantity ?? 1),
             ];
 
             $validated = $checkout_detail_model->validate($data);

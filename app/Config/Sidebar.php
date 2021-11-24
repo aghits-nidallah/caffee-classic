@@ -27,6 +27,11 @@ class Sidebar extends BaseConfig
                 'link' => site_url('admin/user'),
             ],
             [
+                'icon' => 'fa-shopping-bag',
+                'title' => 'Pesanan',
+                'link' => site_url('admin/checkout'),
+            ],
+            [
                 'icon' => 'fa-cog',
                 'title' => 'Pengaturan',
                 'link' => site_url('Settings'),

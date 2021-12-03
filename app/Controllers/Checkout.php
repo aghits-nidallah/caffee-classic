@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Carbon\Carbon;
 use CodeIgniter\RESTful\ResourceController;
 
 class Checkout extends ResourceController
@@ -12,8 +13,17 @@ class Checkout extends ResourceController
 
     public function index()
     {
+        $date_from = $this->request->getGet('date_from') ?? Carbon::now()->subDays(30)->isoFormat('YYYY-MM-DD');
+        $date_to = $this->request->getGet('date_to') ?? Carbon::now()->isoFormat('YYYY-MM-DD');
+
+        $db = db_connect();
+        $sql = "SELECT * FROM checkouts WHERE created_at BETWEEN '$date_from 00:00:00' AND '$date_to 23:59:59' AND deleted_at IS NULL";
+        $checkouts = $db->query($sql)->getResultObject();
+
         return view('Admin/Checkout/index', [
-            'checkouts' => $this->model->findAll(),
+            'date_from' => $date_from,
+            'date_to' => $date_to,
+            'checkouts' => $checkouts,
         ]);
     }
 

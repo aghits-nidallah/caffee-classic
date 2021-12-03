@@ -16,6 +16,24 @@
                 </div>
             </div>
             <div class="card-body">
+                <form action="<?= site_url('admin/checkout') ?>" method="get">
+                    <div class="form-group">
+                        <label>Filter Pesanan</label>
+                        <div class="row">
+                            <div class="d-flex align-items-center col-12 col-sm-6">
+                                <input type="date" name="date_from" id="date_from" class="form-control" value="<?= $date_from ?>">
+                                <span class="mx-2">s/d</span>
+                                <input type="date" name="date_to" id="date_to" class="form-control" value="<?= $date_to ?>">
+                                <div class="d-flex">
+                                    <button type="submit" class="d-flex align-items-center btn btn-primary ml-2">
+                                        <span>Cari</span>
+                                        <i class="fas fa-search ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-sm datatable">
                         <thead>
@@ -25,6 +43,7 @@
                                 <th>No. HP/WA</th>
                                 <th>Alamat</th>
                                 <th>Total Bayar</th>
+                                <th>Tanggal Pemesanan</th>
                                 <th>Status</th>
                                 <th>Opsi</th>
                             </tr>
@@ -46,6 +65,9 @@
                                     </td>
                                     <td>
                                         Rp <?= number_format($checkout->total, 0, '.', '.') ?>
+                                    </td>
+                                    <td>
+                                        <?= \Carbon\Carbon::parse($checkout->created_at)->locale('id_ID')->isoFormat('DD MMMM YYYY, HH:mm:ss') ?>
                                     </td>
                                     <td>
                                         <?php if ($checkout->is_sent): ?>

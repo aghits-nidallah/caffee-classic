@@ -31,11 +31,11 @@ class Sidebar extends BaseConfig
                 'title' => 'Pesanan',
                 'link' => site_url('admin/checkout'),
             ],
-            // [
-            //     'icon' => 'fa-cog',
-            //     'title' => 'Pengaturan',
-            //     'link' => site_url('Settings'),
-            // ],
+            [
+                'icon' => 'fa-cog',
+                'title' => 'Pengaturan',
+                'link' => site_url('admin/websiteSettings'),
+            ],
             // [
             //     'icon' => 'fa-sign-out-alt',
             //     'title' => 'Log Out',

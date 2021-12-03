@@ -8,10 +8,10 @@
                 <div class="row justify-content-lg-start justify-content-md-center">
                     <div class="col-lg-6 col-md-8">
                         <h3 class="title_text text-white text-black text-uppercase" style="-webkit-text-stroke: 2px black;" data-animation="fadeInUp" data-delay=".2s">
-                            Time to discover coffee house
+                            <?= $hero_title->setting_value ?>
                         </h3>
                         <p data-animation="fadeInUp" data-delay=".4s">
-                            The coffee is brewed by first roasting the green coffee beans over hot coals in a brazier. given an opportunity to sample.
+                            <?= $hero_subtitle->setting_value ?>
                         </p>
                     </div>
                 </div>
@@ -110,12 +110,12 @@
             <div class="col-lg-6 col-md-6 order-last">
                 <div class="about_image1 wow fadeInRight" data-wow-delay=".1s">
                     <img src="<?= base_url('writable/uploads/template/caffee/A4.jpg') ?>" alt="image_not_found">
-                    <div class="year_content_wrap text-uppercase" style="background-image: url(<?= base_url('assets-front/images/about/bg_01.png') ?>);">
+                    <!-- <div class="year_content_wrap text-uppercase" style="background-image: url(<?= base_url('assets-front/images/about/bg_01.png') ?>);">
                         <div class="content_wrap">
                             <span>27 <small>+ years of</small></span>
                             <strong>experience</strong>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -229,8 +229,7 @@
                 <div class="offer_video wow fadeIn" data-wow-delay=".1s">
                     <div class="overlay"></div>
                     <img src="<?= base_url('writable/uploads/template/caffee/A1.jpg') ?>" alt="image_not_found">
-                    <!-- <a class="popup_video video_btn2" href="http://www.youtube.com/watch?v=0O2aH4XLbto"> -->
-                    <a class="popup_video video_btn2" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <a class="popup_video video_btn2" href="<?= $youtube_video_link->setting_value ?>">
                         <span class="pulse"><i class="fas fa-play"></i></span>
                         <small class="text-uppercase">Play Video</small>
                     </a>
@@ -269,7 +268,7 @@
                                         <i class="fas fa-phone"></i>
                                     </div>
                                     <div class="item_content">
-                                        <span>Fani Maria Viarawangi 085224787777</span>
+                                        <span><?= $no_hp->setting_value ?></span>
                                     </div>
                                 </li>
                                 <!-- <li>
@@ -281,7 +280,7 @@
                                 <li>
                                     <div class="item_icon"><i class="fas fa-fax"></i></div>
                                     <div class="item_content">
-                                        <span>Jl. Baturoke Sukadana Argapura - Setelah Kampung Air</span>
+                                        <span><?= $alamat->setting_value ?></span>
                                     </div>
                                 </li>
                             </ul>
@@ -295,31 +294,31 @@
                             <ul class="ul_li_block">
                                 <li>
                                     Senin
-                                    <span>9:00 - 18:00</span>
+                                    <span><?= $jam_buka['senin']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Selasa
-                                    <span>10:00 - 18:00</span>
+                                    <span><?= $jam_buka['selasa']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Rabu
-                                    <span>11:00 - 18:00</span>
+                                    <span><?= $jam_buka['rabu']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Kamis
-                                    <span>12:00 - 18:00</span>
+                                    <span><?= $jam_buka['kamis']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Jum'at
-                                    <span>14:00 - 18:00</span>
+                                    <span><?= $jam_buka['jumat']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Sabtu
-                                    <span>16:00 - 18:00</span>
+                                    <span><?= $jam_buka['sabtu']->setting_value ?></span>
                                 </li>
                                 <li>
                                     Minggu
-                                    <span>Tutup</span>
+                                    <span><?= $jam_buka['minggu']->setting_value ?></span>
                                 </li>
                             </ul>
                         </div>

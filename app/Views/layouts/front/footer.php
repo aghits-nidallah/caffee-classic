@@ -1,3 +1,24 @@
+<?php
+    $settings = new \App\Models\WebsiteSetting();
+    $data = [
+        'footer_description' => $settings->where('setting_name', 'footer_description')->first(),
+        'jam_buka' => [
+            'senin' => $settings->where('setting_name', 'jam_buka_senin')->first(),
+            'selasa' => $settings->where('setting_name', 'jam_buka_selasa')->first(),
+            'rabu' => $settings->where('setting_name', 'jam_buka_rabu')->first(),
+            'kamis' => $settings->where('setting_name', 'jam_buka_kamis')->first(),
+            'jumat' => $settings->where('setting_name', 'jam_buka_jumat')->first(),
+            'sabtu' => $settings->where('setting_name', 'jam_buka_sabtu')->first(),
+            'minggu' => $settings->where('setting_name', 'jam_buka_minggu')->first(),
+        ],
+        'alamat' => $settings->where('setting_name', 'alamat')->first(),
+        'no_hp' => $settings->where('setting_name', 'no_hp')->first(),
+        'facebook' => $settings->where("setting_name", 'facebook')->first(),
+        'instagram' => $settings->where("setting_name", 'instagram')->first(),
+        'twitter' => $settings->where("setting_name", 'twitter')->first(),
+        'youtube' => $settings->where("setting_name", 'youtube')->first(),
+    ];
+?>
 <footer class="footer_section text-white deco_wrap" style="background-image: url(<?= base_url('assets-front/images/backgrounds/bg_05.png') ?>);">
     <div class="overlay"></div>
     <div class="footer_widget_area">
@@ -13,15 +34,14 @@
                         </div>
 
                         <p>
-                            Rorem ipsum dolorconsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniaminventore veritatis et.orem ipsum dolorconsectetur adipisicing elit, sed do eiusmod tempor incididunt aneye.
+                            <?= $data['footer_description']->setting_value ?>
                         </p>
 
                         <ul class="social_links social_icons ul_li">
-                            <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-behance"></i></a></li>
+                            <li><a href="<?= $data['facebook']->setting_value ?>"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="<?= $data['twitter']->setting_value ?>"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="<?= $data['instagram']->setting_value ?>"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="<?= $data['youtube']->setting_value ?>"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,8 +53,8 @@
                             Cafe D’villa Classic
                         </p>
                         <ul class="ul_li_block">
-                            <li style="line-height: 1.5;"><strong class="text-uppercase">Adress:</strong> Jl. Baturoke Sukadana Argapura - Setelah Kampung Air</li>
-                            <li style="line-height: 1.5;"><strong class="text-uppercase">Phone:</strong>Fani Maria Viarawangi 085224787777</li>
+                            <li style="line-height: 1.5;"><strong class="text-uppercase">Adress:</strong> <?= $data['alamat']->setting_value ?></li>
+                            <li style="line-height: 1.5;"><strong class="text-uppercase">Phone:</strong> <?= $data['no_hp']->setting_value ?></li>
                         </ul>
                     </div>
                 </div>
@@ -45,31 +65,31 @@
                         <ul class="ul_li_block">
                             <li>
                                 Senin
-                                <span>9:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['senin']->setting_value ?></span>
                             </li>
                             <li>
                                 Selasa
-                                <span>10:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['selasa']->setting_value ?></span>
                             </li>
                             <li>
                                 Rabu
-                                <span>11:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['rabu']->setting_value ?></span>
                             </li>
                             <li>
                                 Kamis
-                                <span>12:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['kamis']->setting_value ?></span>
                             </li>
                             <li>
                                 Jum'at
-                                <span>14:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['jumat']->setting_value ?></span>
                             </li>
                             <li>
                                 Sabtu
-                                <span>16:00 - 18:00</span>
+                                <span><?= $data['jam_buka']['sabtu']->setting_value ?></span>
                             </li>
                             <li>
                                 Minggu
-                                <span>tutup</span>
+                                <span><?= $data['jam_buka']['minggu']->setting_value ?></span>
                             </li>
                         </ul>
                     </div>

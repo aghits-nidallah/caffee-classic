@@ -44,6 +44,7 @@ $routes->group('admin', function($routes) {
     $routes->get('/', 'Admin::index');
     $routes->resource('product', ['websafe' => true]);
     $routes->presenter('user');
+    $routes->presenter('websiteSettings');
 
     $routes->get('checkout', 'Checkout::index');
     $routes->get('checkout/(:num)', 'Checkout::show/$1');
